@@ -87,6 +87,42 @@ $(document).ready(function () {
   slider.init();
 });
 
+// hero
+$(document).ready(function () {
+  // Initially hide the elements
+  $(".hero-text, .hero h1, .hero p").css({
+    opacity: "0",
+    transform: "translateY(20px)",
+  });
+
+  // Animate them in sequence
+  $(".hero-text").animate(
+    {
+      opacity: 1,
+      translateY: "0px",
+    },
+    600,
+    function () {
+      $(".hero h1").animate(
+        {
+          opacity: 1,
+          translateY: "0px",
+        },
+        600,
+        function () {
+          $(".hero p").animate(
+            {
+              opacity: 0.9,
+              translateY: "0px",
+            },
+            700
+          );
+        }
+      );
+    }
+  );
+});
+
 //navbar
 const body = document.body;
 let lastScroll = 0;
