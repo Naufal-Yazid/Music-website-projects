@@ -43,6 +43,11 @@ body {
   position: relative;
 }
 
+.navbar .menu a.active {
+  color: #14ffec;
+  font-weight: 600;
+}
+
 .navbar .menu a:hover {
   color: #14ffec;
 }

@@ -52,7 +52,10 @@ body {
 .navbar h1 span {
   color: #14ffec;
 }
-
+.container .navbar .menu a.active {
+  color: #14ffec;
+  font-weight: 600;
+}
 .navbar .menu a {
   text-decoration: none;
   color: white;
