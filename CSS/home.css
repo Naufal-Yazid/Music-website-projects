@@ -30,7 +30,6 @@ body {
 .navbar h1 {
   color: white;
   cursor: pointer;
-  font-family: "Jost", sans-serif;
 }
 
 .navbar h1 span {
@@ -42,7 +41,6 @@ body {
   color: white;
   transition: 0.5s;
   position: relative;
-  font-family: "Jost", sans-serif;
   font-weight: 400;
 }
 
