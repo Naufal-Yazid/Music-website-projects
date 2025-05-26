@@ -12,7 +12,15 @@
   <body>
     <div class="navbar">
       <h1><span>C</span>'Groovy</h1>
-      <div class="menu">
+
+      <!-- Hamburger menu icon -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <div class="menu" id="menu">
         <a href="../HTML/home.html">Home</a>
         <a href="" class="active">About Us</a>
         <div class="dropdown-menu">
@@ -23,6 +31,7 @@
             <a href="">K-Pop</a>
           </div>
         </div>
+        <a href="" class="btn-register">Register</a>
       </div>
       <button><a href="../HTML/Registration.html">Register</a></button>
     </div>
