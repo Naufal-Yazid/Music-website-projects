@@ -24,13 +24,11 @@ window.addEventListener("scroll", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".card");
 
-  // Function to check if element is in viewport
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.75 && rect.bottom >= 0;
   }
 
-  // Function to handle scroll events
   function handleScroll() {
     cards.forEach((card) => {
       if (isInViewport(card)) {
@@ -39,13 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Initial check in case some cards are already visible
   handleScroll();
-
-  // Add scroll event listener
   window.addEventListener("scroll", handleScroll);
 
-  // Add hover effect to team member cards
   const memberCards = document.querySelectorAll(".member-card");
   memberCards.forEach((card) => {
     card.addEventListener("mouseenter", function () {

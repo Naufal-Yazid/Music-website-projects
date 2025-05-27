@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       console.log("Form data:", formData);
       alert("Account created successfully!");
+      window.location.href = "../HTML/home.html";
     }
   });
 

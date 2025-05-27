@@ -137,8 +137,6 @@ body {
 }
 
 .music-player {
-  /* width: 100%;
-        height: 500px; */
   height: 100vh;
   display: flex;
   overflow: hidden;
@@ -153,7 +151,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background: linear-gradient(to left top, #6e6e6e, #3b3b3b); */
 }
 
 .album-art {
@@ -288,10 +285,9 @@ body {
   transform: translate3d(0, -200%, 0);
 }
 
-/* Responsive styles */
+/* Responsive*/
 @media (max-width: 800px) {
   .music-player {
-    /* width: 95%; */
     flex-direction: column;
     height: 100%;
   }
@@ -321,7 +317,6 @@ body {
   }
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -372,7 +367,6 @@ body {
     display: contents;
   }
 
-  /* Hamburger menu styles */
   .hamburger {
     display: flex;
     flex-direction: column;

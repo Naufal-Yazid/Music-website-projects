@@ -81,7 +81,6 @@ body {
   width: 300px;
 }
 
-/* Dropdown styles */
 .dropdown-menu {
   position: relative;
   display: inline-block;
@@ -133,7 +132,7 @@ body {
   transform: rotate(180deg);
 }
 
-/* Hero Section Styles */
+
 .hero {
   color: white;
   position: relative;
@@ -148,9 +147,9 @@ body {
   top: 24%;
   right: 24%;
   text-align: center;
-  opacity: 0; /* Start hidden */
+  opacity: 0; 
   animation: fadeInUp 1.5s ease-out forwards;
-  animation-delay: 0.3s; /* Slight delay after page load */
+  animation-delay: 0.3s; 
 }
 
 .hero h1 {
@@ -163,7 +162,7 @@ body {
   font-weight: bolder;
   opacity: 0;
   animation: fadeInUp 1.2s ease-out forwards;
-  animation-delay: 0.6s; /* Staggered delay for h1 */
+  animation-delay: 0.6s; 
 }
 
 .hero p {
@@ -173,7 +172,7 @@ body {
   color: #c5c5c5;
   opacity: 0;
   animation: fadeInUp 1.2s ease-out forwards;
-  animation-delay: 0.9s; /* Staggered delay for paragraph */
+  animation-delay: 0.9s; 
 }
 
 @keyframes fadeInUp {
@@ -462,7 +461,6 @@ footer {
 
 .social-icons a {
   color: #555;
-  /* font-size: 18px; */
   width: 44px;
   text-decoration: none;
   img {

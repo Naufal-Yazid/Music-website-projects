@@ -29,7 +29,6 @@ body {
   width: 90%;
 }
 
-/* Main Container Styles */
 .registration-container {
   background-color: #353535;
   border-radius: 10px;
@@ -40,7 +39,6 @@ body {
   color: white;
 }
 
-/* Header Styles */
 .registration-header {
   text-align: center;
 }
@@ -66,7 +64,6 @@ body {
   text-decoration: underline;
 }
 
-/* Form Styles */
 .registration-form .form-group {
   margin-bottom: 10px;
 }
@@ -119,7 +116,6 @@ body {
   font-style: italic;
 }
 
-/* Button Styles */
 .submit-btn {
   width: 100%;
   padding: 14px;
@@ -139,7 +135,6 @@ body {
   background-color: #0e9e92;
 }
 
-/* Error Message Styles */
 .error-message {
   color: #e74c3c;
   font-size: 12px;
@@ -167,7 +162,7 @@ body {
   }
 }
 
-/* Responsive Adjustments */
+/* Responsive*/
 @media (max-width: 431px) {
   .registration-container {
     padding: 30px 40px;

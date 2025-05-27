@@ -46,7 +46,6 @@ class ScrollNavbar {
   }
 }
 
-// Inisialisasi ketika DOM siap
 document.addEventListener('DOMContentLoaded', () => {
   new ScrollNavbar();
 });

@@ -5,8 +5,8 @@
   --text-primary: #d9d9d9;
   --text-secondary: #999999;
   --text-tertiary: #666666;
-  --accent-color: #00f6ff;
-  --accent-hover: #00d9ff;
+  --accent-color: #14ffec;
+  --accent-hover: #00a194;
   --border-color: #222222;
   --border-light: #333333;
 }
@@ -66,7 +66,7 @@ body {
 }
 
 .nav-container h1 {
-  font-size: 30px;
+  font-size: 32px;
   span {
     color: #14ffec;
   }
@@ -81,9 +81,7 @@ body {
 .nav-links a {
   color: var(--text-primary);
   text-decoration: none;
-  font-size: 0.75rem;
   transition: color 0.3s ease;
-  font-size: 16px;
 }
 
 .nav-links a:hover {
@@ -115,8 +113,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-light);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
   padding: 8px 0;
   min-width: 160px;
@@ -147,19 +144,17 @@ body {
   transition: all 0.2s ease;
 }
 
-.dropdown-menu a:hover {
-  color: var(--accent-color);
-  background-color: rgba(0, 246, 255, 0.05);
-}
-
-/* Active link in dropdown */
 .dropdown-menu a[href="#pop-section"],
 .dropdown-menu a[href="#rnb-section"],
 .dropdown-menu a[href="#kpop-section"] {
   color: var(--text-primary);
 }
 
-/* Chevron animation */
+.dropdown-menu a:hover {
+  background-color: rgba(20, 255, 236, 0.2);
+  color: var(--accent-color);
+}
+
 .dropdown:hover .dropdown-icon {
   transform: rotate(180deg);
 }
@@ -169,14 +164,11 @@ body {
   color: var(--accent-color);
   display: inline-block;
   transition: transform 0.3s ease;
-  width: 16px;
-  height: 16px;
 }
 
 .register-btn {
   background-color: var(--accent-color);
   color: black;
-  font-size: 0.75rem;
   font-weight: 600;
   padding: 10px 22px;
   border-radius: 5px;
@@ -194,7 +186,6 @@ body {
   background: none;
   border: none;
   color: var(--text-primary);
-  font-size: 1.25rem;
   cursor: pointer;
 }
 
@@ -303,8 +294,8 @@ body {
 }
 
 .section-title {
-  font-weight: 600;
-  font-size: 0.875rem;
+  font-weight: 800;
+  font-size: 22px;
   margin-bottom: 1rem;
   user-select: none;
 }
@@ -347,18 +338,17 @@ body {
 .song-title {
   color: white;
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 18px;
   margin-bottom: 0.25rem;
   user-select: none;
 }
 
 .song-info {
   color: var(--text-secondary);
-  font-size: 0.5625rem;
+  font-size: 12px;
   line-height: 1rem;
 }
 
-/* Footer Styles */
 footer {
   background-color: #1e1e1e;
   padding: 40px 20px 20px;
@@ -483,9 +473,7 @@ footer {
   }
 }
 
-/* Mobile Optimization (below 800px) */
 @media screen and (max-width: 800px) {
-  /* 1. Fluid Layout & Responsive Spacing */
   .nav-container {
     width: 95% !important;
     left: 2.5% !important;
@@ -494,7 +482,6 @@ footer {
     padding: 15px;
   }
 
-  /* 2. Stacked Mobile Navigation */
   .nav-links {
     flex-direction: column;
     position: fixed;
@@ -506,7 +493,6 @@ footer {
     display: none;
   }
 
-  /* 3. Touch-friendly Elements */
   .genre-btn,
   .register-btn {
     min-width: 80px;
@@ -515,13 +501,11 @@ footer {
     font-size: 16px;
   }
 
-  /* 4. Mobile-first Search */
   .search-form {
     width: 90%;
     height: 50px;
   }
 
-  /* 5. Adjusted Grid Layout */
   .song-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -531,7 +515,6 @@ footer {
     max-width: 100%;
   }
 
-  /* Footer adjustments */
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
@@ -542,29 +525,24 @@ footer {
   }
 }
 
-/* Mobile-specific additions */
 :root {
-  --vh: 1vh; /* Will be set by JS */
+  --vh: 1vh;
 }
 
 @media screen and (max-width: 800px) {
-  /* 1. Full-height mobile sections */
   body {
     min-height: calc(var(--vh, 1vh) * 100);
   }
 
-  /* 2. Touch feedback for buttons */
   .genre-btn:active,
   .register-btn:active {
     transform: scale(0.95);
   }
 
-  /* 3. Larger tap targets */
   .dropdown-menu a {
     padding: 12px 20px;
   }
 
-  /* 4. Hide dropdown on mobile (use accordion instead) */
   .dropdown-menu {
     position: static;
     display: none;
@@ -579,13 +557,11 @@ footer {
     display: block;
   }
 
-  /* 5. Adjust font sizes */
   .page-title {
     font-size: 28px;
   }
 }
 
-/* Small Tablets (600px and up) */
 @media (min-width: 600px) {
   .song-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -596,7 +572,6 @@ footer {
   }
 }
 
-/* Tablets (768px and up) */
 @media (min-width: 768px) {
   .nav-links {
     display: flex;
@@ -610,7 +585,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Tablet-specific dropdown adjustments */
   .dropdown-menu {
     position: absolute;
     display: block;
@@ -626,7 +600,6 @@ footer {
   }
 }
 
-/* Small Desktops (992px and up) */
 @media (min-width: 992px) {
   .song-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -637,9 +610,7 @@ footer {
   }
 }
 
-/* Mobile-Specific Overrides (max-width: 599px) */
 @media (max-width: 599px) {
-  /* 1. Fluid Layout */
   .nav-container {
     width: 95% !important;
     left: 2.5% !important;
@@ -648,7 +619,6 @@ footer {
     padding: 15px;
   }
 
-  /* 2. Mobile Navigation */
   .nav-links {
     flex-direction: column;
     position: fixed;
@@ -661,7 +631,6 @@ footer {
     border-bottom: 1px solid var(--border-color);
   }
 
-  /* 3. Touch-friendly Elements */
   .genre-btn,
   .register-btn {
     min-width: 80px;
@@ -670,18 +639,15 @@ footer {
     font-size: 16px;
   }
 
-  /* 4. Mobile Search */
   .search-form {
     width: 95%;
     height: 50px;
   }
 
-  /* 5. Single Column Layout */
   .song-grid {
     grid-template-columns: 1fr;
   }
 
-  /* 6. Footer Stack */
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
@@ -691,23 +657,19 @@ footer {
     justify-content: center;
   }
 
-  /* 7. Viewport Height Fix */
   body {
     min-height: calc(var(--vh, 1vh) * 100);
   }
 
-  /* 8. Touch Feedback */
   button:active,
   a:active {
     transform: scale(0.98);
   }
 
-  /* 9. Font Sizes */
   .page-title {
     font-size: 28px;
   }
 
-  /* 10. Dropdown as Accordion */
   .dropdown-menu {
     position: static;
     display: none;

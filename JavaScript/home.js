@@ -1,3 +1,4 @@
+// Slider
 $(document).ready(function () {
   const slider = {
     currentIndex: 0,
@@ -57,7 +58,7 @@ $(document).ready(function () {
     },
 
     startAutoPlay: function () {
-      this.stopAutoPlay(); // Clear any existing interval
+      this.stopAutoPlay(); 
       this.autoPlayInterval = setInterval(() => this.nextSlide(), this.speed);
     },
 
@@ -74,13 +75,11 @@ $(document).ready(function () {
 
 // hero
 $(document).ready(function () {
-  // Initially hide the elements
   $(".hero-text, .hero h1, .hero p").css({
     opacity: "0",
     transform: "translateY(20px)",
   });
 
-  // Animate them in sequence
   $(".hero-text").animate(
     {
       opacity: 1,
@@ -138,94 +137,72 @@ function toggleMenu() {
   document.querySelector(".hamburger").classList.toggle("active");
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const albums = document.querySelectorAll(".top-album");
 
-  const audio = new Audio();
-  let currentlyPlaying = null;
+// Music Album
+document.addEventListener("DOMContentLoaded", function () {
+  const albumSongs = {
+    "Dawn FM": "../Asset/The Weeknd - Dawn FM.mp3",
+    "Manusia": "../Asset/TULUS - Manusia Kuat.mp3",
+    "a Beautiful Blur": "../Asset/cause you have to.mp3",
+    "The 1975": "../Asset/The 1975 - About You.mp3",
+  };
+
+  const audioPlayer = new Audio();
+  let currentPlayingAlbum = null;
+
+  const albums = document.querySelectorAll(".top-album");
 
   albums.forEach((album) => {
     const playBtn = document.createElement("button");
     playBtn.className = "play-btn";
-    playBtn.innerHTML = "▶";
-    playBtn.style.display = "none";
-    playBtn.style.position = "absolute";
-    playBtn.style.right = "20px";
-    playBtn.style.background = "rgba(0,0,0,0.7)";
-    playBtn.style.border = "none";
-    playBtn.style.borderRadius = "50%";
-    playBtn.style.width = "40px";
-    playBtn.style.height = "40px";
-    playBtn.style.color = "white";
-    playBtn.style.cursor = "pointer";
-    playBtn.style.transition = "all 0.3s";
+    playBtn.innerHTML = '<i class="fas fa-play"></i>';
 
-    album.style.position = "relative";
     album.appendChild(playBtn);
 
-    album.addEventListener("mouseenter", () => {
-      playBtn.style.display = "block";
-    });
-    album.addEventListener("mouseleave", () => {
-      if (currentlyPlaying !== album) {
-        playBtn.style.display = "none";
-      }
-    });
+    const albumTitle = album.querySelector(".album-title").textContent;
 
-    playBtn.addEventListener("click", (e) => {
+    playBtn.addEventListener("click", function (e) {
       e.stopPropagation();
 
-      if (currentlyPlaying === album) {
-        audio.pause();
-        currentlyPlaying = null;
-        playBtn.innerHTML = "▶";
+      if (currentPlayingAlbum === album && !audioPlayer.paused) {
+        audioPlayer.pause();
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        currentPlayingAlbum = null;
         return;
       }
 
-      currentlyPlaying = album;
+      if (currentPlayingAlbum && currentPlayingAlbum !== album) {
+        const prevPlayBtn = currentPlayingAlbum.querySelector(".play-btn");
+        prevPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+      }
 
-      document.querySelectorAll(".play-btn").forEach((btn) => {
-        btn.innerHTML = "▶";
-      });
+      audioPlayer.src = albumSongs[albumTitle];
 
-      playBtn.innerHTML = "❚❚";
+      audioPlayer
+        .play()
+        .then(() => {
+          playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+          currentPlayingAlbum = album;
+        })
+        .catch((error) => {
+          console.error("Error playing audio:", error);
+        });
+    });
 
-      const trackUrl = getTrackUrl(album);
-      audio.src = trackUrl;
-      audio.play();
+    audioPlayer.addEventListener("ended", function () {
+      playBtn.innerHTML = '<i class="fas fa-play"></i>';
+      currentPlayingAlbum = null;
+    });
 
-      playBtn.style.display = "block";
+    audioPlayer.addEventListener("pause", function () {
+      if (currentPlayingAlbum === album) {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+      }
     });
   });
 
-  audio.addEventListener("ended", () => {
-    if (currentlyPlaying) {
-      const playBtn = currentlyPlaying.querySelector(".play-btn");
-      if (playBtn) {
-        playBtn.innerHTML = "▶";
-      }
-      currentlyPlaying = null;
-    }
-  });
-
-  // Function to get track URL (replace with your actual logic)
-  function getTrackUrl(album) {
-    // In a real implementation, you would get this from a data attribute
-    // For example: album.dataset.trackUrl
-    // For now, we'll use placeholder URLs
-
-    const artist = album.querySelector(".album-artist").textContent;
-    const title = album.querySelector(".album-title").textContent;
-
-    // Return different sample tracks based on artist/album
-    if (artist.includes("Weeknd")) {
-      return "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-    } else if (artist.includes("Tulus")) {
-      return "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3";
-    } else if (artist.includes("Post Malone")) {
-      return "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3";
-    } else {
-      return "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3";
-    }
-  }
+  const fontAwesome = document.createElement("link");
+  fontAwesome.rel = "stylesheet";
+  fontAwesome.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css";
+  document.head.appendChild(fontAwesome);
 });
