@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Figtree", sans-serif;
 }
 
 body {
@@ -132,6 +132,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 10px;
+  font-weight: 700;
 }
 
 .submit-btn:hover {
@@ -160,13 +161,30 @@ body {
   font-size: 14px;
 }
 
+@media (max-width: 800px) {
+  .registration-img {
+    display: none;
+  }
+}
+
 /* Responsive Adjustments */
-@media (max-width: 480px) {
+@media (max-width: 431px) {
   .registration-container {
-    padding: 30px 20px;
+    padding: 30px 40px;
+    width: 80%;
   }
 
-  .registration-header h1 {
-    font-size: 24px;
+  .registration-header h2 {
+    font-size: 1rem;
+  }
+  .registration-header p {
+    font-size: 10px;
+  }
+
+  .form-group label {
+    font-size: 10px;
+  }
+  .form-group input {
+    font-size: 10px;
   }
 }

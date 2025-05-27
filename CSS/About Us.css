@@ -7,7 +7,6 @@
 
 body {
   background-color: #080808;
-  /* padding-top: 100px; */
 }
 
 .navbar {
@@ -132,102 +131,6 @@ body {
 
 .dropdown-menu:hover .dropdown-arrow {
   transform: rotate(180deg);
-}
-
-/* CSS yang sudah ada tetap dipertahankan, tambahkan ini di bagian bawah */
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
-    width: 90%;
-    left: 5%;
-    top: 3%;
-  }
-
-  .navbar .menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 15px;
-  }
-
-  .navbar .menu.active {
-    display: flex;
-  }
-
-  .navbar .menu a {
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .dropdown-content {
-    position: static;
-    display: none;
-    width: 100%;
-    box-shadow: none;
-    background-color: transparent;
-  }
-
-  .dropdown-menu:hover .dropdown-content {
-    display: none;
-  }
-
-  .dropdown-menu.active .dropdown-content {
-    display: block;
-  }
-
-  .navbar button {
-    display: none;
-  }
-
-  .btn-register {
-    display: contents;
-  }
-
-  /* Hamburger menu styles */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25px;
-    height: 20px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    cursor: pointer;
-  }
-
-  .hamburger .bar {
-    height: 3px;
-    width: 100%;
-    background-color: white;
-    transition: all 0.3s ease;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-}
-
-@media (min-width: 769px) {
-  .hamburger {
-    display: none;
-  }
-
-  .navbar .menu {
-    display: flex !important;
-  }
 }
 
 /* Hero Section Styles */
@@ -580,11 +483,102 @@ footer {
   transform: translate3d(0, -200%, 0);
 }
 
-/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+    width: 90%;
+    left: 5%;
+    top: 3%;
+  }
+
+  .navbar .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .navbar .menu.active {
+    display: flex;
+  }
+
+  .navbar .menu a {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .dropdown-menu:hover .dropdown-content {
+    display: none;
+  }
+
+  .dropdown-menu.active .dropdown-content {
+    display: block;
+  }
+
+  .navbar button {
+    display: none;
+  }
+
+  .btn-register {
+    display: contents;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  .hamburger .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .navbar .menu {
+    display: flex !important;
+  }
+}
+
 @media (max-width: 800px) {
   .hero-text {
     top: 27%;
-    right: 24%;
+    right: 21%;
   }
   .hero-text h1 {
     font-size: 3rem;
@@ -599,9 +593,18 @@ footer {
     font-size: 2rem;
   }
 
-  .title-bg {
-    font-size: 3rem;
-    top: -20px;
+  .card {
+    width: 60%;
+  }
+
+  .card:nth-child(odd) {
+    left: -20%;
+    transform: translateX(-20px);
+  }
+
+  .card:nth-child(even) {
+    left: 60%;
+    transform: translateX(20px);
   }
 
   .member {
@@ -613,5 +616,58 @@ footer {
   .member-card {
     width: 100%;
     max-width: 280px;
+  }
+}
+
+@media (max-width: 431px) {
+  .navbar {
+    top: 1%;
+    left: 5%;
+  }
+
+  .navbar h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text {
+    top: 28%;
+    left: 4%;
+    margin-bottom: 0.2rem;
+    width: 400px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero p {
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .main h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+  .card p {
+    font-size: 10px;
+  }
+
+  .card:nth-child(odd) {
+    left: -20%;
+    transform: translateX(-77px);
+  }
+
+  .card:nth-child(even) {
+    left: 60%;
+    transform: translateX(15px);
   }
 }

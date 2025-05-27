@@ -21,6 +21,12 @@ window.addEventListener("scroll", function () {
   lastScroll = currentScroll;
 });
 
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+  document.querySelector(".hamburger").classList.toggle("active");
+}
+
 const audio = document.getElementById("audio");
 const playBtn = document.getElementById("playBtn");
 const repeatBtn = document.getElementById("repeatBtn");
@@ -31,7 +37,6 @@ const durationEl = document.getElementById("duration");
 
 let isRepeat = false;
 
-// Play/Pause
 playBtn.addEventListener("click", () => {
   if (audio.paused) {
     audio.play();
@@ -42,20 +47,17 @@ playBtn.addEventListener("click", () => {
   }
 });
 
-// Repeat
 repeatBtn.addEventListener("click", () => {
   isRepeat = !isRepeat;
   repeatBtn.classList.toggle("active");
   audio.loop = isRepeat;
 });
 
-// Update progress bar
 audio.addEventListener("timeupdate", () => {
   const { duration, currentTime } = audio;
   const progressPercent = (currentTime / duration) * 100;
   progressBar.style.width = `${progressPercent}%`;
 
-  // Update time display
   const currentMinutes = Math.floor(currentTime / 60);
   const currentSeconds = Math.floor(currentTime % 60)
     .toString()
@@ -63,7 +65,6 @@ audio.addEventListener("timeupdate", () => {
   currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
 });
 
-// Set progress when clicked on progress bar
 progressContainer.addEventListener("click", (e) => {
   const width = progressContainer.clientWidth;
   const clickX = e.offsetX;
@@ -71,7 +72,6 @@ progressContainer.addEventListener("click", (e) => {
   audio.currentTime = (clickX / width) * duration;
 });
 
-// Update duration time
 audio.addEventListener("loadedmetadata", () => {
   const durationMinutes = Math.floor(audio.duration / 60);
   const durationSeconds = Math.floor(audio.duration % 60)
@@ -80,7 +80,6 @@ audio.addEventListener("loadedmetadata", () => {
   durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
 });
 
-// Reset when song ends
 audio.addEventListener("ended", () => {
   if (!isRepeat) {
     progressBar.style.width = "0%";

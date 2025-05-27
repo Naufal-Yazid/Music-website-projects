@@ -1,28 +1,18 @@
 $(document).ready(function () {
-  // Slider configuration
   const slider = {
     currentIndex: 0,
     autoPlayInterval: null,
-    slides: [
-      { src: "../Asset/banner1.png" },
-      { src: "../Asset/banner2.png" },
-      { src: "../Asset/banner3.png" },
-      // Add more slides as needed
-    ],
-    speed: 2000, // Auto-play speed in milliseconds
+    slides: [{ src: "../Asset/banner1.png" }, { src: "../Asset/banner2.png" }, { src: "../Asset/banner3.png" }],
+    speed: 2000,
 
     init: function () {
-      // Create dots
       this.createDots();
 
-      // Set up event handlers
       $("#prev-btn").click(() => this.prevSlide());
       $("#next-btn").click(() => this.nextSlide());
 
-      // Start auto-play
       this.startAutoPlay();
 
-      // Pause on hover
       $(".music-card").hover(
         () => this.stopAutoPlay(),
         () => this.startAutoPlay()
@@ -30,17 +20,13 @@ $(document).ready(function () {
     },
 
     showSlide: function (index) {
-      // Wrap around if at ends
       if (index >= this.slides.length) {
         index = 0;
       } else if (index < 0) {
         index = this.slides.length - 1;
       }
-
       this.currentIndex = index;
       $("#banner").attr("src", this.slides[index].src);
-
-      // Update active dot
       $(".dot").removeClass("active");
       $(`.dot[data-index="${index}"]`).addClass("active");
     },
@@ -83,7 +69,6 @@ $(document).ready(function () {
     },
   };
 
-  // Initialize the slider
   slider.init();
 });
 
@@ -147,21 +132,23 @@ window.addEventListener("scroll", function () {
   lastScroll = currentScroll;
 });
 
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+  document.querySelector(".hamburger").classList.toggle("active");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Get all album elements
   const albums = document.querySelectorAll(".top-album");
 
-  // Create audio element (we'll reuse this for all tracks)
   const audio = new Audio();
   let currentlyPlaying = null;
 
-  // Add hover effect to each album
   albums.forEach((album) => {
-    // Create play button
     const playBtn = document.createElement("button");
     playBtn.className = "play-btn";
     playBtn.innerHTML = "▶";
-    playBtn.style.display = "none"; // Hidden by default
+    playBtn.style.display = "none";
     playBtn.style.position = "absolute";
     playBtn.style.right = "20px";
     playBtn.style.background = "rgba(0,0,0,0.7)";
@@ -173,28 +160,21 @@ document.addEventListener("DOMContentLoaded", function () {
     playBtn.style.cursor = "pointer";
     playBtn.style.transition = "all 0.3s";
 
-    // Add button to album
     album.style.position = "relative";
     album.appendChild(playBtn);
 
-    // Mouse enter event
     album.addEventListener("mouseenter", () => {
       playBtn.style.display = "block";
     });
-
-    // Mouse leave event
     album.addEventListener("mouseleave", () => {
-      // Only hide if not currently playing this album
       if (currentlyPlaying !== album) {
         playBtn.style.display = "none";
       }
     });
 
-    // Play button click event
     playBtn.addEventListener("click", (e) => {
       e.stopPropagation();
 
-      // If this album is already playing, pause it
       if (currentlyPlaying === album) {
         audio.pause();
         currentlyPlaying = null;
@@ -202,28 +182,22 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Otherwise, play this album's track
       currentlyPlaying = album;
 
-      // Update all buttons to show play icon (except this one)
       document.querySelectorAll(".play-btn").forEach((btn) => {
         btn.innerHTML = "▶";
       });
 
-      // Set this button to show pause icon
       playBtn.innerHTML = "❚❚";
 
-      // Get the track URL (you would replace this with actual track URLs)
       const trackUrl = getTrackUrl(album);
       audio.src = trackUrl;
       audio.play();
 
-      // Show this button even when mouse leaves
       playBtn.style.display = "block";
     });
   });
 
-  // When audio ends, reset the playing state
   audio.addEventListener("ended", () => {
     if (currentlyPlaying) {
       const playBtn = currentlyPlaying.querySelector(".play-btn");
