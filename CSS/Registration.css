@@ -29,6 +29,10 @@ body {
   width: 90%;
 }
 
+.header-text span{
+  color: #14ffec;
+}
+
 .registration-container {
   background-color: #353535;
   border-radius: 10px;
@@ -132,7 +136,7 @@ body {
 }
 
 .submit-btn:hover {
-  background-color: #0e9e92;
+  background-color: #0e9e92; 
 }
 
 .error-message {

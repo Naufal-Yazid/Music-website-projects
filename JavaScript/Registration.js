@@ -37,7 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("ageError").style.display = "none";
     }
 
-    document.getElementById("genderError").style.display = "none";
+    const genderSelected = document.querySelector('input[name="gender"]:checked');
+    if (!genderSelected) {
+      document.getElementById("genderError").style.display = "block";
+      isValid = false;
+    } else {
+      document.getElementById("genderError").style.display = "none";
+    }
 
     return isValid;
   }
@@ -88,5 +94,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("ageError").style.display = "none";
       }
     }
+  });
+
+  const genderInputs = document.querySelectorAll('input[name="gender"]');
+  genderInputs.forEach(input => {
+    input.addEventListener("change", function() {
+      if (document.querySelector('input[name="gender"]:checked')) {
+        document.getElementById("genderError").style.display = "none";
+      }
+    });
   });
 });
